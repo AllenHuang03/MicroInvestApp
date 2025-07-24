@@ -1,0 +1,73 @@
+com.microinvest.app-credentials-1.2.0-rc01-0 C:\Users\allen\.gradle\caches\8.13\transforms\00c199cd140e7dc844f2ebacf4c4175b\transformed\credentials-1.2.0-rc01\res
+com.microinvest.app-lifecycle-viewmodel-2.7.0-1 C:\Users\allen\.gradle\caches\8.13\transforms\0286cb0360f9881aa5d37ab61c6dcdb5\transformed\lifecycle-viewmodel-2.7.0\res
+com.microinvest.app-material-icons-core-release-2 C:\Users\allen\.gradle\caches\8.13\transforms\0863d5c9e41ee31f6b86e2944873eca1\transformed\material-icons-core-release\res
+com.microinvest.app-material-icons-extended-release-3 C:\Users\allen\.gradle\caches\8.13\transforms\0cc906393731f5a069d4e928d619fd3d\transformed\material-icons-extended-release\res
+com.microinvest.app-play-services-basement-18.5.0-4 C:\Users\allen\.gradle\caches\8.13\transforms\166688d32a07490f1f9de39b14e80b24\transformed\play-services-basement-18.5.0\res
+com.microinvest.app-fragment-1.5.1-5 C:\Users\allen\.gradle\caches\8.13\transforms\1b6153f2df74a304d3606bbefbbf616e\transformed\fragment-1.5.1\res
+com.microinvest.app-material3-release-6 C:\Users\allen\.gradle\caches\8.13\transforms\1c378f4549ad2fde6b7b70c8b2b5e266\transformed\material3-release\res
+com.microinvest.app-browser-1.4.0-7 C:\Users\allen\.gradle\caches\8.13\transforms\243fb0a181ecbd375598f8e005ba797b\transformed\browser-1.4.0\res
+com.microinvest.app-ui-util-release-8 C:\Users\allen\.gradle\caches\8.13\transforms\2477ee079752ff0b6c2c58da87801a7e\transformed\ui-util-release\res
+com.microinvest.app-lifecycle-runtime-ktx-2.7.0-9 C:\Users\allen\.gradle\caches\8.13\transforms\2a41c81ee373581a8e58f389977a4ac3\transformed\lifecycle-runtime-ktx-2.7.0\res
+com.microinvest.app-ui-graphics-release-10 C:\Users\allen\.gradle\caches\8.13\transforms\31299e519782df64a80fe2755b3ac73a\transformed\ui-graphics-release\res
+com.microinvest.app-activity-ktx-1.8.2-11 C:\Users\allen\.gradle\caches\8.13\transforms\31b72de8115ae9ef70d36960f9b2d719\transformed\activity-ktx-1.8.2\res
+com.microinvest.app-ui-release-12 C:\Users\allen\.gradle\caches\8.13\transforms\399b8503077703b18567d8e4136905e5\transformed\ui-release\res
+com.microinvest.app-material-release-13 C:\Users\allen\.gradle\caches\8.13\transforms\3ff7059254f6ba34b3ed0c2ea6b015b4\transformed\material-release\res
+com.microinvest.app-lifecycle-runtime-2.7.0-14 C:\Users\allen\.gradle\caches\8.13\transforms\43d2c100a17cc0f69fc2fb86477813a2\transformed\lifecycle-runtime-2.7.0\res
+com.microinvest.app-animation-release-15 C:\Users\allen\.gradle\caches\8.13\transforms\43e0d351b64b9d3999c545296cc27829\transformed\animation-release\res
+com.microinvest.app-navigation-runtime-ktx-2.7.6-16 C:\Users\allen\.gradle\caches\8.13\transforms\455bca0c5e71ba4d13384ea5f780293d\transformed\navigation-runtime-ktx-2.7.6\res
+com.microinvest.app-lifecycle-livedata-2.7.0-17 C:\Users\allen\.gradle\caches\8.13\transforms\47a08c48cc3299c55f800780f455f565\transformed\lifecycle-livedata-2.7.0\res
+com.microinvest.app-firebase-common-21.0.0-18 C:\Users\allen\.gradle\caches\8.13\transforms\4a2e38a930c86ab22944fa700931c514\transformed\firebase-common-21.0.0\res
+com.microinvest.app-core-ktx-1.12.0-19 C:\Users\allen\.gradle\caches\8.13\transforms\4a39e354a61d99975a8eb0a2132738f8\transformed\core-ktx-1.12.0\res
+com.microinvest.app-runtime-release-20 C:\Users\allen\.gradle\caches\8.13\transforms\4cde26ad8d207f0ec25dd549aa3cf7f5\transformed\runtime-release\res
+com.microinvest.app-ui-test-manifest-1.6.1-21 C:\Users\allen\.gradle\caches\8.13\transforms\4de231fc0ec7f6b321ef88857ac7df5a\transformed\ui-test-manifest-1.6.1\res
+com.microinvest.app-ads-adservices-1.1.0-beta11-22 C:\Users\allen\.gradle\caches\8.13\transforms\4ee74997254dadd27c2e3d8ae78dc6ae\transformed\ads-adservices-1.1.0-beta11\res
+com.microinvest.app-ui-text-release-23 C:\Users\allen\.gradle\caches\8.13\transforms\505d4373a8b428aa739dcc3fcc428045\transformed\ui-text-release\res
+com.microinvest.app-emoji2-1.3.0-24 C:\Users\allen\.gradle\caches\8.13\transforms\52469da389ac1e2f27e1442c2efd6c47\transformed\emoji2-1.3.0\res
+com.microinvest.app-savedstate-1.2.1-25 C:\Users\allen\.gradle\caches\8.13\transforms\53fa907ec006b74b534bceaf59caaeaa\transformed\savedstate-1.2.1\res
+com.microinvest.app-core-runtime-2.2.0-26 C:\Users\allen\.gradle\caches\8.13\transforms\57ebc5d8604c3ae46abd4a0169b4728b\transformed\core-runtime-2.2.0\res
+com.microinvest.app-lifecycle-livedata-core-2.7.0-27 C:\Users\allen\.gradle\caches\8.13\transforms\59130287444b2b340e75fa96e5b8d361\transformed\lifecycle-livedata-core-2.7.0\res
+com.microinvest.app-customview-poolingcontainer-1.0.0-28 C:\Users\allen\.gradle\caches\8.13\transforms\595398d4ab81fce19116a150a91e4d1c\transformed\customview-poolingcontainer-1.0.0\res
+com.microinvest.app-annotation-experimental-1.4.0-29 C:\Users\allen\.gradle\caches\8.13\transforms\59db08419a172ca9c077e76b60cbd134\transformed\annotation-experimental-1.4.0\res
+com.microinvest.app-sqlite-2.4.0-30 C:\Users\allen\.gradle\caches\8.13\transforms\5efe7a33e75f52e02f95f2464e4b8a40\transformed\sqlite-2.4.0\res
+com.microinvest.app-activity-compose-1.8.2-31 C:\Users\allen\.gradle\caches\8.13\transforms\5f1dd02535b5b7aecfd88ab1cbeaf0ce\transformed\activity-compose-1.8.2\res
+com.microinvest.app-profileinstaller-1.3.0-32 C:\Users\allen\.gradle\caches\8.13\transforms\6392ff2414e48ea223eac1a9a66d41f7\transformed\profileinstaller-1.3.0\res
+com.microinvest.app-core-1.12.0-33 C:\Users\allen\.gradle\caches\8.13\transforms\675fe8dfd7a82da469c45b86354f3fe0\transformed\core-1.12.0\res
+com.microinvest.app-navigation-common-2.7.6-34 C:\Users\allen\.gradle\caches\8.13\transforms\7067b1c055d6c42191f2b357f6595854\transformed\navigation-common-2.7.6\res
+com.microinvest.app-room-runtime-2.6.1-35 C:\Users\allen\.gradle\caches\8.13\transforms\707b8d6f1cbb55fe0a25a3371fdd31e3\transformed\room-runtime-2.6.1\res
+com.microinvest.app-startup-runtime-1.1.1-36 C:\Users\allen\.gradle\caches\8.13\transforms\73b81efc8bcc9fe712843483cb197bf1\transformed\startup-runtime-1.1.1\res
+com.microinvest.app-credentials-play-services-auth-1.2.0-rc01-37 C:\Users\allen\.gradle\caches\8.13\transforms\752332230aeafd14d4450cd665c29b16\transformed\credentials-play-services-auth-1.2.0-rc01\res
+com.microinvest.app-lifecycle-viewmodel-compose-2.7.0-38 C:\Users\allen\.gradle\caches\8.13\transforms\77a01567553e9dbe0160c8ee66c0b9b5\transformed\lifecycle-viewmodel-compose-2.7.0\res
+com.microinvest.app-foundation-release-39 C:\Users\allen\.gradle\caches\8.13\transforms\77dd98b3bedc148d0eb8f3551fe71cbb\transformed\foundation-release\res
+com.microinvest.app-room-ktx-2.6.1-40 C:\Users\allen\.gradle\caches\8.13\transforms\7af563fa07f34690566bb973365d07d0\transformed\room-ktx-2.6.1\res
+com.microinvest.app-runtime-saveable-release-41 C:\Users\allen\.gradle\caches\8.13\transforms\83f9ed0f421820b9e9cd02e51aac37c1\transformed\runtime-saveable-release\res
+com.microinvest.app-ui-tooling-release-42 C:\Users\allen\.gradle\caches\8.13\transforms\86722ef77ebd8ca61d0e6182c07c3151\transformed\ui-tooling-release\res
+com.microinvest.app-hilt-navigation-compose-1.1.0-43 C:\Users\allen\.gradle\caches\8.13\transforms\88f77e64208221734c36d4718e0fb18f\transformed\hilt-navigation-compose-1.1.0\res
+com.microinvest.app-animation-core-release-44 C:\Users\allen\.gradle\caches\8.13\transforms\8d71a1df5ccaa0a3837d0c1514664f09\transformed\animation-core-release\res
+com.microinvest.app-foundation-layout-release-45 C:\Users\allen\.gradle\caches\8.13\transforms\8e4a451b3b56cc457a89795a0f2ffab7\transformed\foundation-layout-release\res
+com.microinvest.app-play-services-base-18.5.0-46 C:\Users\allen\.gradle\caches\8.13\transforms\961212137a2466073dcea035fedc704b\transformed\play-services-base-18.5.0\res
+com.microinvest.app-savedstate-ktx-1.2.1-47 C:\Users\allen\.gradle\caches\8.13\transforms\96802ad7ff26883d6b554c35de051c51\transformed\savedstate-ktx-1.2.1\res
+com.microinvest.app-lifecycle-viewmodel-savedstate-2.7.0-48 C:\Users\allen\.gradle\caches\8.13\transforms\98dc981cf577212a79330c9bb58cc12a\transformed\lifecycle-viewmodel-savedstate-2.7.0\res
+com.microinvest.app-sqlite-framework-2.4.0-49 C:\Users\allen\.gradle\caches\8.13\transforms\99571419538fa7b2865d69ceaf3e0b9f\transformed\sqlite-framework-2.4.0\res
+com.microinvest.app-lifecycle-process-2.7.0-50 C:\Users\allen\.gradle\caches\8.13\transforms\a45c20ab5db306717e796c884d9af53d\transformed\lifecycle-process-2.7.0\res
+com.microinvest.app-material-ripple-release-51 C:\Users\allen\.gradle\caches\8.13\transforms\a8801593cf7260929760998f7e58e6ab\transformed\material-ripple-release\res
+com.microinvest.app-ui-tooling-data-release-52 C:\Users\allen\.gradle\caches\8.13\transforms\aa60720f2d809579437c45cb4708bb9a\transformed\ui-tooling-data-release\res
+com.microinvest.app-hilt-navigation-1.1.0-53 C:\Users\allen\.gradle\caches\8.13\transforms\aacb10b1d653358ab5a0708253bec041\transformed\hilt-navigation-1.1.0\res
+com.microinvest.app-navigation-runtime-2.7.6-54 C:\Users\allen\.gradle\caches\8.13\transforms\abacefb576516fa84aef2156ba7fcefd\transformed\navigation-runtime-2.7.6\res
+com.microinvest.app-play-services-auth-20.7.0-55 C:\Users\allen\.gradle\caches\8.13\transforms\b334ad0c8ca2a6465d885baf3566592b\transformed\play-services-auth-20.7.0\res
+com.microinvest.app-lifecycle-livedata-core-ktx-2.7.0-56 C:\Users\allen\.gradle\caches\8.13\transforms\b5c9479aece2dfe04ca7195e70160d66\transformed\lifecycle-livedata-core-ktx-2.7.0\res
+com.microinvest.app-activity-1.8.2-57 C:\Users\allen\.gradle\caches\8.13\transforms\c858c8e3eb958cfab2685376d86048dd\transformed\activity-1.8.2\res
+com.microinvest.app-navigation-common-ktx-2.7.6-58 C:\Users\allen\.gradle\caches\8.13\transforms\d5f7cf243d12f9141b76fa36b4e59857\transformed\navigation-common-ktx-2.7.6\res
+com.microinvest.app-core-common-2.0.3-59 C:\Users\allen\.gradle\caches\8.13\transforms\db15785348fc5412d035905a0efae501\transformed\core-common-2.0.3\res
+com.microinvest.app-ui-tooling-preview-release-60 C:\Users\allen\.gradle\caches\8.13\transforms\df0ed6338e6497d5c002ff5ab2c1dd44\transformed\ui-tooling-preview-release\res
+com.microinvest.app-ui-geometry-release-61 C:\Users\allen\.gradle\caches\8.13\transforms\e043d919c327979cf5e8fcebe957e24a\transformed\ui-geometry-release\res
+com.microinvest.app-navigation-compose-2.7.6-62 C:\Users\allen\.gradle\caches\8.13\transforms\e6d1702c909c1afea10f50fbe0037c1a\transformed\navigation-compose-2.7.6\res
+com.microinvest.app-ads-adservices-java-1.1.0-beta11-63 C:\Users\allen\.gradle\caches\8.13\transforms\edd8265a62fa8c807c1b7320759ad1e8\transformed\ads-adservices-java-1.1.0-beta11\res
+com.microinvest.app-lifecycle-viewmodel-ktx-2.7.0-64 C:\Users\allen\.gradle\caches\8.13\transforms\fa3159f51ff575e2b480a39982d7c196\transformed\lifecycle-viewmodel-ktx-2.7.0\res
+com.microinvest.app-ui-unit-release-65 C:\Users\allen\.gradle\caches\8.13\transforms\fb44a31c318820cb6c96158c2e690679\transformed\ui-unit-release\res
+com.microinvest.app-res-66 C:\Users\allen\OneDrive\Documents\SWIN MIT\MicroInvestApp\app\build\generated\res\processDebugGoogleServices
+com.microinvest.app-resValues-67 C:\Users\allen\OneDrive\Documents\SWIN MIT\MicroInvestApp\app\build\generated\res\resValues\debug
+com.microinvest.app-packageDebugResources-68 C:\Users\allen\OneDrive\Documents\SWIN MIT\MicroInvestApp\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.microinvest.app-packageDebugResources-69 C:\Users\allen\OneDrive\Documents\SWIN MIT\MicroInvestApp\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.microinvest.app-debug-70 C:\Users\allen\OneDrive\Documents\SWIN MIT\MicroInvestApp\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.microinvest.app-debug-71 C:\Users\allen\OneDrive\Documents\SWIN MIT\MicroInvestApp\app\src\debug\res
+com.microinvest.app-main-72 C:\Users\allen\OneDrive\Documents\SWIN MIT\MicroInvestApp\app\src\main\res

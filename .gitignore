@@ -1,0 +1,27 @@
+# Android specific
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Keystore files
+*.jks
+*.keystore
+
+# Google Services (if using)
+google-services.json
+
+# Compiled class files
+*.class
+
+# Log Files
+*.log
+
+# Android Profiling
+*.hprof

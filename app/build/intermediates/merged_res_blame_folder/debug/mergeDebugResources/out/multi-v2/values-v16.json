@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.microinvest.app-mergeDebugResources-69:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\allen\\.gradle\\caches\\8.13\\transforms\\675fe8dfd7a82da469c45b86354f3fe0\\transformed\\core-1.12.0\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        }
+    ]
+}
