@@ -11,6 +11,39 @@ class InvestmentRepository @Inject constructor(
     private val investmentDao: InvestmentDao
 ) {
     
+    // ========== UI Expected Methods ==========
+    // These methods match what your UI ViewModels expect
+    
+    fun getUserInvestments(userId: Long): Flow<List<Investment>> = 
+        getInvestmentsByUser(userId)
+    
+    suspend fun addInvestment(
+        userId: Long,
+        symbol: String,
+        name: String,
+        shares: Double,
+        avgCost: Double,
+        currentPrice: Double = avgCost
+    ): Long {
+        val investment = Investment(
+            userId = userId,
+            symbol = symbol,
+            name = name,
+            shares = shares,
+            purchasePrice = avgCost, // Map avgCost to purchasePrice
+            currentPrice = currentPrice,
+            category = "Stock",
+            notes = ""
+        )
+        return addInvestment(investment)
+    }
+    
+    suspend fun deleteInvestment(investmentId: Long) {
+        deleteInvestmentById(investmentId)
+    }
+    
+    // ========== Original Methods (Keep All) ==========
+    
     // Get all investments for a user
     fun getInvestmentsByUser(userId: Long): Flow<List<Investment>> = 
         investmentDao.getInvestmentsByUser(userId)
@@ -23,11 +56,11 @@ class InvestmentRepository @Inject constructor(
     suspend fun getInvestmentsBySymbol(userId: Long, symbol: String): List<Investment> = 
         investmentDao.getInvestmentsBySymbol(userId, symbol)
     
-    // Add new investment
+    // Add new investment (original method)
     suspend fun addInvestment(investment: Investment): Long = 
         investmentDao.insertInvestment(investment)
     
-    // Add investment with parameters
+    // Add investment with parameters (original method)
     suspend fun addInvestment(
         userId: Long,
         symbol: String,
@@ -58,7 +91,7 @@ class InvestmentRepository @Inject constructor(
     suspend fun updatePriceForSymbol(symbol: String, newPrice: Double) = 
         investmentDao.updatePriceForSymbol(symbol, newPrice)
     
-    // Delete investment
+    // Delete investment (original method)
     suspend fun deleteInvestment(investment: Investment) = 
         investmentDao.deleteInvestment(investment)
     

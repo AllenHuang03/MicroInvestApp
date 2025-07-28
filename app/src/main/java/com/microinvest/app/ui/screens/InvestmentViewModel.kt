@@ -27,40 +27,41 @@ class InvestmentViewModel @Inject constructor(
             _uiState.update { it.copy(isLoading = true) }
             
             try {
-                // Load investments
-                val investments = investmentRepository.getUserInvestments(currentUserId)
-                val investmentUiModels = investments.map { investment ->
-                    InvestmentUiModel(
-                        id = investment.id,
-                        symbol = investment.symbol,
-                        name = investment.name,
-                        shares = investment.shares,
-                        avgCost = investment.avgCost,
-                        currentPrice = investment.currentPrice,
-                        totalValue = investment.shares * investment.currentPrice,
-                        gainLoss = (investment.currentPrice - investment.avgCost) * investment.shares,
-                        gainLossPercentage = if (investment.avgCost > 0) 
-                            ((investment.currentPrice - investment.avgCost) / investment.avgCost) * 100 
-                            else 0.0
-                    )
-                }
-                
-                // Calculate portfolio totals
-                val totalValue = investmentUiModels.sumOf { it.totalValue }
-                val totalCost = investmentUiModels.sumOf { it.shares * it.avgCost }
-                val totalGainLoss = totalValue - totalCost
-                val gainLossPercentage = if (totalCost > 0) (totalGainLoss / totalCost) * 100 else 0.0
-                
-                _uiState.update { currentState ->
-                    currentState.copy(
-                        investments = investmentUiModels,
-                        totalPortfolioValue = totalValue,
-                        totalCost = totalCost,
-                        totalGainLoss = totalGainLoss,
-                        gainLossPercentage = gainLossPercentage,
-                        isLoading = false,
-                        error = null
-                    )
+                // Collect from Flow
+                investmentRepository.getUserInvestments(currentUserId).collect { investments ->
+                    val investmentUiModels = investments.map { investment ->
+                        InvestmentUiModel(
+                            id = investment.id,
+                            symbol = investment.symbol,
+                            name = investment.name,
+                            shares = investment.shares,
+                            avgCost = investment.purchasePrice, // Use purchasePrice from entity
+                            currentPrice = investment.currentPrice,
+                            totalValue = investment.shares * investment.currentPrice,
+                            gainLoss = (investment.currentPrice - investment.purchasePrice) * investment.shares,
+                            gainLossPercentage = if (investment.purchasePrice > 0) 
+                                ((investment.currentPrice - investment.purchasePrice) / investment.purchasePrice) * 100 
+                                else 0.0
+                        )
+                    }
+                    
+                    // Calculate portfolio totals
+                    val totalValue = investmentUiModels.sumOf { it.totalValue }
+                    val totalCost = investmentUiModels.sumOf { it.shares * it.avgCost }
+                    val totalGainLoss = totalValue - totalCost
+                    val gainLossPercentage = if (totalCost > 0) (totalGainLoss / totalCost) * 100 else 0.0
+                    
+                    _uiState.update { currentState ->
+                        currentState.copy(
+                            investments = investmentUiModels,
+                            totalPortfolioValue = totalValue,
+                            totalCost = totalCost,
+                            totalGainLoss = totalGainLoss,
+                            gainLossPercentage = gainLossPercentage,
+                            isLoading = false,
+                            error = null
+                        )
+                    }
                 }
             } catch (e: Exception) {
                 _uiState.update { 
@@ -89,12 +90,12 @@ class InvestmentViewModel @Inject constructor(
                     symbol = symbol,
                     name = name,
                     shares = shares,
-                    avgCost = price,
+                    avgCost = price, // This maps to purchasePrice in repository
                     currentPrice = price // In real app, fetch current price from API
                 )
                 
                 hideAddInvestmentDialog()
-                loadInvestments() // Refresh the list
+                // loadInvestments() will be called automatically due to Flow collection
                 
             } catch (e: Exception) {
                 _uiState.update { 
@@ -113,7 +114,7 @@ class InvestmentViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 investmentRepository.deleteInvestment(investment.id)
-                loadInvestments() // Refresh the list
+                // loadInvestments() will be called automatically due to Flow collection
                 
             } catch (e: Exception) {
                 _uiState.update { 
@@ -124,7 +125,7 @@ class InvestmentViewModel @Inject constructor(
     }
     
     fun refreshInvestments() {
-        loadInvestments()
+        // No need to manually refresh - Flow will update automatically
     }
     
     fun clearError() {

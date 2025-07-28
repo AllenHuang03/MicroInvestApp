@@ -183,7 +183,7 @@ fun MonthlyBudgetOverviewCard(
                     )
                 }
                 
-                Column(horizontalAlignment = Alignment.Center) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
                         text = "Spent",
                         style = MaterialTheme.typography.bodyMedium,

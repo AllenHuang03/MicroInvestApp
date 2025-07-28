@@ -1,6 +1,7 @@
 package com.microinvest.app.data.repository
 
 import com.microinvest.app.data.local.dao.BudgetDao
+import com.microinvest.app.data.local.dao.ExpenseDao
 import com.microinvest.app.data.local.entity.Budget
 import kotlinx.coroutines.flow.Flow
 import java.util.Calendar
@@ -9,8 +10,45 @@ import javax.inject.Singleton
 
 @Singleton
 class BudgetRepository @Inject constructor(
-    private val budgetDao: BudgetDao
+    private val budgetDao: BudgetDao,
+    private val expenseDao: ExpenseDao
 ) {
+    
+    // ========== UI Expected Methods ==========
+    // These methods match what your UI ViewModels expect
+    
+    fun getUserBudgetCategories(userId: Long): Flow<List<Budget>> = 
+        budgetDao.getBudgetsByUser(userId)
+    
+    suspend fun getCategorySpentAmount(userId: Long, category: String): Double {
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.DAY_OF_MONTH, 1)
+        calendar.set(Calendar.HOUR_OF_DAY, 0)
+        calendar.set(Calendar.MINUTE, 0)
+        calendar.set(Calendar.SECOND, 0)
+        calendar.set(Calendar.MILLISECOND, 0)
+        val startOfMonth = calendar.timeInMillis
+        
+        calendar.add(Calendar.MONTH, 1)
+        calendar.add(Calendar.MILLISECOND, -1)
+        val endOfMonth = calendar.timeInMillis
+        
+        return expenseDao.getTotalExpensesByCategoryInRange(userId, category, startOfMonth, endOfMonth) ?: 0.0
+    }
+    
+    suspend fun addBudgetCategory(
+        userId: Long,
+        category: String,
+        budgetAmount: Double
+    ): Long {
+        return createBudget(userId, category, budgetAmount)
+    }
+    
+    suspend fun deleteBudgetCategory(budgetId: Long) {
+        deleteBudgetById(budgetId)
+    }
+    
+    // ========== Original Methods (Keep All) ==========
     
     // Get all budgets for a user
     fun getBudgetsByUser(userId: Long): Flow<List<Budget>> = 

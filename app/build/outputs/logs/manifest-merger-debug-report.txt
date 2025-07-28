@@ -263,7 +263,7 @@ MERGED from [com.google.android.play:core-common:2.0.3] C:\Users\allen\.gradle\c
 	android:theme
 		ADDED from C:\Users\allen\OneDrive\Documents\SWIN MIT\MicroInvestApp\app\src\main\AndroidManifest.xml:17:9-49
 	android:name
-		ADDED from C:\Users\allen\OneDrive\Documents\SWIN MIT\MicroInvestApp\app\src\main\AndroidManifest.xml:12:9-47
+		ADDED from C:\Users\allen\OneDrive\Documents\SWIN MIT\MicroInvestApp\app\src\main\AndroidManifest.xml:12:9-39
 activity#com.microinvest.app.MainActivity
 ADDED from C:\Users\allen\OneDrive\Documents\SWIN MIT\MicroInvestApp\app\src\main\AndroidManifest.xml:19:9-28:20
 	android:label

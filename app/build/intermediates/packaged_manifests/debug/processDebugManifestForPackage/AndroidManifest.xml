@@ -27,7 +27,7 @@
     <uses-permission android:name="com.microinvest.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
-        android:name="com.microinvest.app.MicroInvestApplication"
+        android:name="com.microinvest.app.MicroInvestApp"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"

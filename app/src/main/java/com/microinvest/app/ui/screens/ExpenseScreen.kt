@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.microinvest.app.ui.screens
 
 import androidx.compose.foundation.layout.*
@@ -8,6 +10,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
+
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,7 +23,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun ExpenseScreen(
     viewModel: ExpenseViewModel = hiltViewModel()

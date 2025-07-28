@@ -27,39 +27,40 @@ class BudgetViewModel @Inject constructor(
             _uiState.update { it.copy(isLoading = true) }
             
             try {
-                // Load budget categories
-                val budgetCategories = budgetRepository.getUserBudgetCategories(currentUserId)
-                val budgetCategoryUiModels = budgetCategories.map { budget ->
-                    val spentAmount = budgetRepository.getCategorySpentAmount(currentUserId, budget.category)
-                    val remainingAmount = budget.budgetAmount - spentAmount
-                    val progress = if (budget.budgetAmount > 0) (spentAmount / budget.budgetAmount).toFloat() else 0f
+                // Collect from Flow
+                budgetRepository.getUserBudgetCategories(currentUserId).collect { budgets ->
+                    val budgetCategoryUiModels = budgets.map { budget ->
+                        val spentAmount = budgetRepository.getCategorySpentAmount(currentUserId, budget.category)
+                        val remainingAmount = budget.budgetAmount - spentAmount
+                        val progress = if (budget.budgetAmount > 0) (spentAmount / budget.budgetAmount).toFloat() else 0f
+                        
+                        BudgetCategoryUiModel(
+                            id = budget.id,
+                            categoryName = budget.category,
+                            budgetAmount = budget.budgetAmount,
+                            spentAmount = spentAmount,
+                            remainingAmount = remainingAmount,
+                            progress = progress
+                        )
+                    }
                     
-                    BudgetCategoryUiModel(
-                        id = budget.id,
-                        categoryName = budget.category,
-                        budgetAmount = budget.budgetAmount,
-                        spentAmount = spentAmount,
-                        remainingAmount = remainingAmount,
-                        progress = progress
-                    )
-                }
-                
-                // Calculate totals
-                val totalBudget = budgetCategoryUiModels.sumOf { it.budgetAmount }
-                val totalSpent = budgetCategoryUiModels.sumOf { it.spentAmount }
-                val remainingBudget = totalBudget - totalSpent
-                val budgetProgress = if (totalBudget > 0) (totalSpent / totalBudget).toFloat() else 0f
-                
-                _uiState.update { currentState ->
-                    currentState.copy(
-                        budgetCategories = budgetCategoryUiModels,
-                        totalMonthlyBudget = totalBudget,
-                        totalMonthlySpent = totalSpent,
-                        remainingBudget = remainingBudget,
-                        budgetProgress = budgetProgress,
-                        isLoading = false,
-                        error = null
-                    )
+                    // Calculate totals
+                    val totalBudget = budgetCategoryUiModels.sumOf { it.budgetAmount }
+                    val totalSpent = budgetCategoryUiModels.sumOf { it.spentAmount }
+                    val remainingBudget = totalBudget - totalSpent
+                    val budgetProgress = if (totalBudget > 0) (totalSpent / totalBudget).toFloat() else 0f
+                    
+                    _uiState.update { currentState ->
+                        currentState.copy(
+                            budgetCategories = budgetCategoryUiModels,
+                            totalMonthlyBudget = totalBudget,
+                            totalMonthlySpent = totalSpent,
+                            remainingBudget = remainingBudget,
+                            budgetProgress = budgetProgress,
+                            isLoading = false,
+                            error = null
+                        )
+                    }
                 }
             } catch (e: Exception) {
                 _uiState.update { 
@@ -90,7 +91,7 @@ class BudgetViewModel @Inject constructor(
                 )
                 
                 hideAddBudgetDialog()
-                loadBudgets() // Refresh the list
+                // loadBudgets() will be called automatically due to Flow collection
                 
             } catch (e: Exception) {
                 _uiState.update { 
@@ -109,7 +110,7 @@ class BudgetViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 budgetRepository.deleteBudgetCategory(budgetCategory.id)
-                loadBudgets() // Refresh the list
+                // loadBudgets() will be called automatically due to Flow collection
                 
             } catch (e: Exception) {
                 _uiState.update { 
@@ -120,7 +121,7 @@ class BudgetViewModel @Inject constructor(
     }
     
     fun refreshBudgets() {
-        loadBudgets()
+        // No need to manually refresh - Flow will update automatically
     }
     
     fun clearError() {

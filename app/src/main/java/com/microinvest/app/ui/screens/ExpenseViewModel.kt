@@ -31,48 +31,49 @@ class ExpenseViewModel @Inject constructor(
             _uiState.update { it.copy(isLoading = true) }
             
             try {
-                // Load expenses
-                val expenses = expenseRepository.getUserExpenses(currentUserId)
-                val expenseUiModels = expenses.map { expense ->
-                    ExpenseUiModel(
-                        id = expense.id,
-                        description = expense.description,
-                        amount = expense.amount,
-                        category = expense.category,
-                        date = expense.date,
-                        formattedDate = dateFormatter.format(expense.date)
-                    )
-                }.sortedByDescending { it.date } // Sort by date, newest first
-                
-                // Calculate monthly total
-                val calendar = Calendar.getInstance()
-                val currentMonth = calendar.get(Calendar.MONTH)
-                val currentYear = calendar.get(Calendar.YEAR)
-                
-                val monthlyExpenses = expenseUiModels.filter { expense ->
-                    val expenseCalendar = Calendar.getInstance().apply { time = expense.date }
-                    expenseCalendar.get(Calendar.MONTH) == currentMonth && 
-                    expenseCalendar.get(Calendar.YEAR) == currentYear
-                }
-                
-                val totalMonthlyExpenses = monthlyExpenses.sumOf { it.amount }
-                
-                // Group expenses by category for current month
-                val expensesByCategory = monthlyExpenses
-                    .groupBy { it.category }
-                    .mapValues { (_, expenses) -> expenses.sumOf { it.amount } }
-                    .toList()
-                    .sortedByDescending { it.second }
-                    .toMap()
-                
-                _uiState.update { currentState ->
-                    currentState.copy(
-                        expenses = expenseUiModels,
-                        totalMonthlyExpenses = totalMonthlyExpenses,
-                        expensesByCategory = expensesByCategory,
-                        isLoading = false,
-                        error = null
-                    )
+                // Collect from Flow
+                expenseRepository.getUserExpenses(currentUserId).collect { expenses ->
+                    val expenseUiModels = expenses.map { expense ->
+                        ExpenseUiModel(
+                            id = expense.id,
+                            description = expense.description,
+                            amount = expense.amount,
+                            category = expense.category,
+                            date = Date(expense.date), // Convert Long to Date
+                            formattedDate = dateFormatter.format(Date(expense.date))
+                        )
+                    }.sortedByDescending { it.date } // Sort by date, newest first
+                    
+                    // Calculate monthly total
+                    val calendar = Calendar.getInstance()
+                    val currentMonth = calendar.get(Calendar.MONTH)
+                    val currentYear = calendar.get(Calendar.YEAR)
+                    
+                    val monthlyExpenses = expenseUiModels.filter { expense ->
+                        val expenseCalendar = Calendar.getInstance().apply { time = expense.date }
+                        expenseCalendar.get(Calendar.MONTH) == currentMonth && 
+                        expenseCalendar.get(Calendar.YEAR) == currentYear
+                    }
+                    
+                    val totalMonthlyExpenses = monthlyExpenses.sumOf { it.amount }
+                    
+                    // Group expenses by category for current month
+                    val expensesByCategory = monthlyExpenses
+                        .groupBy { it.category }
+                        .mapValues { (_, expenses) -> expenses.sumOf { it.amount } }
+                        .toList()
+                        .sortedByDescending { it.second }
+                        .toMap()
+                    
+                    _uiState.update { currentState ->
+                        currentState.copy(
+                            expenses = expenseUiModels,
+                            totalMonthlyExpenses = totalMonthlyExpenses,
+                            expensesByCategory = expensesByCategory,
+                            isLoading = false,
+                            error = null
+                        )
+                    }
                 }
             } catch (e: Exception) {
                 _uiState.update { 
@@ -105,7 +106,7 @@ class ExpenseViewModel @Inject constructor(
                 )
                 
                 hideAddExpenseDialog()
-                loadExpenses() // Refresh the list
+                // loadExpenses() will be called automatically due to Flow collection
                 
             } catch (e: Exception) {
                 _uiState.update { 
@@ -124,7 +125,7 @@ class ExpenseViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 expenseRepository.deleteExpense(expense.id)
-                loadExpenses() // Refresh the list
+                // loadExpenses() will be called automatically due to Flow collection
                 
             } catch (e: Exception) {
                 _uiState.update { 
@@ -135,7 +136,7 @@ class ExpenseViewModel @Inject constructor(
     }
     
     fun refreshExpenses() {
-        loadExpenses()
+        // No need to manually refresh - Flow will update automatically
     }
     
     fun clearError() {

@@ -5,6 +5,7 @@ import com.microinvest.app.data.local.dao.BudgetDao
 import com.microinvest.app.data.local.entity.Expense
 import kotlinx.coroutines.flow.Flow
 import java.util.Calendar
+import java.util.Date
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -13,6 +14,37 @@ class ExpenseRepository @Inject constructor(
     private val expenseDao: ExpenseDao,
     private val budgetDao: BudgetDao
 ) {
+    
+    // ========== UI Expected Methods ==========
+    // These methods match what your UI ViewModels expect
+    
+    fun getUserExpenses(userId: Long): Flow<List<Expense>> = 
+        getExpensesByUser(userId)
+    
+    suspend fun addExpense(
+        userId: Long,
+        description: String,
+        amount: Double,
+        category: String,
+        date: Date = Date()
+    ): Long {
+        val expense = Expense(
+            userId = userId,
+            description = description,
+            amount = amount,
+            category = category,
+            date = date.time, // Convert Date to Long timestamp
+            isRecurring = false,
+            budgetId = null
+        )
+        return addExpense(expense)
+    }
+    
+    suspend fun deleteExpense(expenseId: Long) {
+        deleteExpenseById(expenseId)
+    }
+    
+    // ========== Original Methods (Keep All) ==========
     
     // Get all expenses for a user
     fun getExpensesByUser(userId: Long): Flow<List<Expense>> = 
@@ -51,7 +83,7 @@ class ExpenseRepository @Inject constructor(
         return getExpensesInDateRange(userId, startOfMonth, endOfMonth)
     }
     
-    // Add new expense
+    // Add new expense (original method)
     suspend fun addExpense(expense: Expense): Long {
         val expenseId = expenseDao.insertExpense(expense)
         
@@ -61,7 +93,7 @@ class ExpenseRepository @Inject constructor(
         return expenseId
     }
     
-    // Add expense with parameters
+    // Add expense with parameters (original method)
     suspend fun addExpense(
         userId: Long,
         amount: Double,
@@ -93,7 +125,7 @@ class ExpenseRepository @Inject constructor(
         updateBudgetSpentAmount(newExpense)
     }
     
-    // Delete expense
+    // Delete expense (original method)
     suspend fun deleteExpense(expense: Expense) {
         expenseDao.deleteExpense(expense)
         // Reverse the budget impact

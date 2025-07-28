@@ -32,6 +32,8 @@ class DashboardViewModel @Inject constructor(
     
     private fun loadDashboardData() {
         viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true) }
+            
             // Load user info
             loadUserInfo()
             
@@ -102,16 +104,15 @@ class DashboardViewModel @Inject constructor(
     
     private suspend fun loadRecentExpenses() {
         try {
-            // In a real implementation, you'd collect from the Flow
-            // For now, using demo data
-            val recentExpenses = listOf(
-                "Grocery Store",
-                "Gas Station", 
-                "Coffee Shop"
-            )
-            
-            _uiState.update { currentState ->
-                currentState.copy(recentExpenses = recentExpenses)
+            // Collect from Flow and get recent expenses
+            expenseRepository.getUserExpenses(currentUserId).take(1).collect { expenses ->
+                val recentExpenses = expenses.take(3).map { expense ->
+                    expense.description
+                }
+                
+                _uiState.update { currentState ->
+                    currentState.copy(recentExpenses = recentExpenses)
+                }
             }
         } catch (e: Exception) {
             _uiState.update { it.copy(error = "Failed to load recent expenses") }
@@ -120,16 +121,15 @@ class DashboardViewModel @Inject constructor(
     
     private suspend fun loadTopInvestments() {
         try {
-            // In a real implementation, you'd process investment data
-            // For now, using demo data
-            val topInvestments = listOf(
-                "AAPL",
-                "GOOGL",
-                "TSLA"
-            )
-            
-            _uiState.update { currentState ->
-                currentState.copy(topPerformingInvestments = topInvestments)
+            // Collect from Flow and get top investments
+            investmentRepository.getUserInvestments(currentUserId).take(1).collect { investments ->
+                val topInvestments = investments.take(3).map { investment ->
+                    investment.symbol
+                }
+                
+                _uiState.update { currentState ->
+                    currentState.copy(topPerformingInvestments = topInvestments)
+                }
             }
         } catch (e: Exception) {
             _uiState.update { it.copy(error = "Failed to load top investments") }
